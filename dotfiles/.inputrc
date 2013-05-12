@@ -1,0 +1,9 @@
+set bind-tty-special-chars on
+set completion-ignore-case on
+set mark-symlinked-directories on
+
+"\C-w": unix-filename-rubout
+"": unix-filename-rubout
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\C-x*": glob-expand-word

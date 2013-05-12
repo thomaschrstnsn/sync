@@ -1,0 +1,38 @@
+[user]
+  name = Thomas Christensen
+  email = thomas@chrstnsn.dk
+
+[color]
+  status = auto
+  branch = auto
+  diff = auto
+  ui = auto
+
+[alias]
+  ci = commit
+  co = checkout
+  st = status -s
+  br = branch
+  nb = checkout -b
+  sm = submodule
+  dm = !GIT_EXTERNAL_DIFF=~/bin/git-diff-wrapper-diffmerge.sh git diff
+  l1 = log --pretty=oneline
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ff = merge --ff-only
+
+[merge]
+  tool = p4merge # This will be the default merge tool invoked by git mergetool.
+
+[mergetool "p4merge"]
+  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
+	  "$PWD/$BASE" \
+	  "$PWD/$REMOTE" \
+	  "$PWD/$LOCAL" \
+	  "$PWD/$MERGED"
+  keepBackup = false
+  trustExitCode = false
+
+[push]
+	default = simple
