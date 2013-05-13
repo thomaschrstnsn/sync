@@ -2,6 +2,6 @@
 
 ## `dotfiles`
 
-zsh, liquidprompt
+zsh, liquidprompt, oh-my-zsh
 
-Run `dotfiles/setup.sh` to deploy.
+From `~/` run `sync/dotfiles/setup.sh` to deploy (will query before overwriting).
