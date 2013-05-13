@@ -11,23 +11,24 @@ fi
 
 cd $FROM
 
-echo "Symlinking files from '$FROM' to '$TO'"
+echo "Symlinking files from $FROM to $TO"
 
 for FILE in `find -L . -maxdepth 1 -wholename './.*'`; do
-    SOURCE="$FROM"/`basename $FILE`
+    SOURCE="$PWD"/`basename $FILE`
+    DESTFILE="$TO"/`basename $FILE`
 
-    if [[ "$SOURCE" -ef "$TO"/`basename $FILE` ]]; then
-        echo skipping "$FILE" it is already linked correctly
+    if [[ "$DESTFILE" -ef "$SOURCE" ]]; then
+        echo "skipping as it is already linked correctly $SOURCE"
         continue
     fi
 
-    if [[ -d "$FILE" ]]; then
+    if [[ -d "$SOURCE" ]]; then
         DEST="$TO"
     else
-        DEST="$TO"/`basename $FILE`
+        DEST="$DESTFILE"
     fi
 
-    echo "Creating symlink to $FILE"
+    echo "Creating symlink from $SOURCE to $DESTFILE"
     ln -siF "$SOURCE" "$DEST"
     echo
 done
