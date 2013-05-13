@@ -11,25 +11,11 @@ fi
 
 cd $FROM
 
-for FILE in `find -L . -maxdepth 1 -wholename './.*' -printf '%P\n'`; do
-	TO_FILE="$TO/$FILE"
+echo "Symlinking files from '$FROM' to '$TO'"
 
-	if [[ -e $TO_FILE ]] || [[ -h $TO_$FILE ]]; then
-		read -p "File $TO_FILE exists, overwrite? [Y/n] " -n 1 -r
-
-		if [[ $REPLY =~ ^[Nn]$ ]]; then
-			echo
-			echo "Skipping $FILE"
-			echo
-
-			continue
-		fi
-
-		rm $TO_FILE
-	fi
-
+for FILE in `find -L . -maxdepth 1 -wholename './.*'`; do
 	echo "Creating symlink to $FILE"
 	echo
 
-	ln -sT "$FROM/$FILE" $TO_FILE
+	ln -si "$FROM/$FILE" "$TO/$FILE"
 done
