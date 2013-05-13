@@ -16,6 +16,11 @@ echo "Symlinking files from '$FROM' to '$TO'"
 for FILE in `find -L . -maxdepth 1 -wholename './.*'`; do
     SOURCE="$FROM"/`basename $FILE`
 
+    if [[ "$SOURCE" -ef "$TO"/`basename $FILE` ]]; then
+        echo skipping "$FILE" it is already linked correctly
+        continue
+    fi
+
     if [[ -d "$FILE" ]]; then
         DEST="$TO"
     else
@@ -23,7 +28,6 @@ for FILE in `find -L . -maxdepth 1 -wholename './.*'`; do
     fi
 
     echo "Creating symlink to $FILE"
-    echo
-
     ln -siF "$SOURCE" "$DEST"
+    echo
 done
