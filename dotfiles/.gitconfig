@@ -21,18 +21,3 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ff = merge --ff-only
-
-[merge]
-  tool = p4merge # This will be the default merge tool invoked by git mergetool.
-
-[mergetool "p4merge"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge \
-	  "$PWD/$BASE" \
-	  "$PWD/$REMOTE" \
-	  "$PWD/$LOCAL" \
-	  "$PWD/$MERGED"
-  keepBackup = false
-  trustExitCode = false
-
-[push]
-	default = simple
