@@ -14,8 +14,16 @@ cd $FROM
 echo "Symlinking files from '$FROM' to '$TO'"
 
 for FILE in `find -L . -maxdepth 1 -wholename './.*'`; do
-	echo "Creating symlink to $FILE"
-	echo
+    SOURCE="$FROM"/`basename $FILE`
 
-	ln -si "$FROM/$FILE" "$TO/$FILE"
+    if [[ -d "$FILE" ]]; then
+        DEST="$TO"
+    else
+        DEST="$TO"/`basename $FILE`
+    fi
+
+    echo "Creating symlink to $FILE"
+    echo
+
+    ln -siF "$SOURCE" "$DEST"
 done
