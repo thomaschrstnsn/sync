@@ -5,7 +5,7 @@ source ~/.liquidprompt/liquidprompt
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git osx tmux brew lein rsync)
+plugins=(git osx tmux brew lein rsync colored-man)
 
 source $ZSH/oh-my-zsh.sh
 
