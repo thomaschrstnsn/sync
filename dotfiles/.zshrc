@@ -56,3 +56,11 @@ if [ -t 0 ]; then
     stty stop undef
     stty werase undef
 fi
+
+# starting shell from ssh and tmux is not running - run autotmux - logout if everything is ok
+if [[ -n $SSH_CONNECTION && -z "$TMUX" && -x ~/.autotmux ]]; then
+    ~/.autotmux
+    if [ $? -eq 0 ]; then
+        logout
+    fi
+fi
