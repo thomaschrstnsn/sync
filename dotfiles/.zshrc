@@ -5,7 +5,7 @@ source ~/.liquidprompt/liquidprompt
 
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git osx tmux brew lein rsync colored-man)
+plugins=(git osx tmux brew lein rsync colored-man history-substring-search extract)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,9 +34,6 @@ else
     export EDITOR="emacsclient -t -a \"\""
     alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 fi
-
-bindkey '^[[A' history-beginning-search-backward # Up
-bindkey '^[[B' history-beginning-search-forward # Down
 
 alias youtube-download='youtube-dl -t'
 alias subs='LC_CTYPE="en" subliminal -l en'
