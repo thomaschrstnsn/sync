@@ -5,6 +5,13 @@ source ~/.liquidprompt/liquidprompt
 
 COMPLETION_WAITING_DOTS="true"
 
+# starting shell from ssh and tmux is not running
+if [[ -n $SSH_CONNECTION && -z "$TMUX" ]]; then
+    echo "autostarting tmux"
+    ZSH_TMUX_AUTOSTART=true
+    ZSH_TMUX_AUTOCONNECT=true
+fi
+
 plugins=(git osx tmux brew lein rsync colored-man history-substring-search extract)
 
 source $ZSH/oh-my-zsh.sh
@@ -52,12 +59,4 @@ alias datomic-free=$HOME/.datomic-free/bin/datomic-free
 if [ -t 0 ]; then
     stty stop undef
     stty werase undef
-fi
-
-# starting shell from ssh and tmux is not running - run autotmux - logout if everything is ok
-if [[ -n $SSH_CONNECTION && -z "$TMUX" && -x ~/.autotmux ]]; then
-    ~/.autotmux
-    if [ $? -eq 0 ]; then
-        logout
-    fi
 fi
