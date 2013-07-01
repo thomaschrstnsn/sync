@@ -21,3 +21,5 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ff = merge --ff-only
+[push]
+	default = simple
