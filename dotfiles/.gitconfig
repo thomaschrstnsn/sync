@@ -10,6 +10,7 @@
 
 [alias]
   ci = commit
+  cia = commit -a
   co = checkout
   st = status -s
   br = branch
