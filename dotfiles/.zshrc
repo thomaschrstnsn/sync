@@ -32,7 +32,7 @@ then
     ect() { $EC -t -a ""; }
     eck() { $EC -e "(kill-emacs 0)"; }
 
-    export EDITOR="$EC -t -a \"\""
+    export EDITOR="$EC -c -a \"\""
     alias E="SUDO_EDITOR=\"$EC -t -a emacs\" sudoedit"
 else
     ec()  { emacsclient -a "" -t "$@"}
