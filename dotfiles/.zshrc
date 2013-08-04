@@ -47,6 +47,8 @@ alias subs='LC_CTYPE="en" subliminal -l en'
 alias opensubs='subs --service opensubtitles'
 alias synchronize='rsync -WavP --ignore-existing'
 
+alias gs='git st'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .-='cd -'
