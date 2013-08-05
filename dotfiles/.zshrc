@@ -28,7 +28,8 @@ then
     # requires emacs >= 24 in path (for emacs-live) (e.g. script in ~/bin/)
     EC="$APPLICATION_EMACS_APP"
 
-    ec()  { $EC -a "" -c "$@" & }
+    ec()  { $EC -a "" -c "$@" &! }
+    ecd() { $EC -a "" -c "$@" & }
     ect() { $EC -t -a ""; }
     eck() { $EC -e "(kill-emacs 0)"; }
 
@@ -42,12 +43,15 @@ else
     alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 fi
 
+alias reload-zshrc='. ~/.zshrc'
 alias youtube-download='youtube-dl -t'
 alias subs='LC_CTYPE="en" subliminal -l en'
 alias opensubs='subs --service opensubtitles'
 alias synchronize='rsync -WavP --ignore-existing'
 
 alias gs='git st'
+alias gci='git ci'
+alias gcia='git cia'
 
 alias ..='cd ..'
 alias ...='cd ../..'
