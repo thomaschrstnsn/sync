@@ -21,6 +21,11 @@ export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH:.
 
 export LESSCHARSET='utf-8'
 
+if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]];
+then
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 APPLICATION_EMACS_APP='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 if [[ -x $APPLICATION_EMACS_APP ]];
 then
