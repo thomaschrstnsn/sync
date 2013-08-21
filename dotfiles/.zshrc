@@ -27,27 +27,14 @@ then
     source $ZSH_SYNTAX_HIGHLIGHT_PATH
 fi
 
-APPLICATION_EMACS_APP='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-if [[ -x $APPLICATION_EMACS_APP ]];
-then
-    # osx gui emacs-daemon/client stuff
-    # requires emacs >= 24 in path (for emacs-live) (e.g. script in ~/bin/)
-    EC="$APPLICATION_EMACS_APP"
+# osx gui emacs? recommended: brew install emacs --cocoa --srgb
+ec()  { emacsclient -a "" -c "$@" &! }
+ecd() { emacsclient -a "" -c "$@" & }
+ect() { emacsclient -a "" -t "$@" ; }
+eck() { emacsclient -e "(kill-emacs 0)"; }
 
-    ec()  { $EC -a "" -c "$@" &! }
-    ecd() { $EC -a "" -c "$@" & }
-    ect() { $EC -t -a ""; }
-    eck() { $EC -e "(kill-emacs 0)"; }
-
-    export EDITOR="$EC -c -a \"\""
-    alias E="SUDO_EDITOR=\"$EC -t -a emacs\" sudoedit"
-else
-    ec()  { emacsclient -a "" -t "$@"}
-    eck() { emacsclient -e "(kill-emacs 0)"; }
-
-    export EDITOR="emacsclient -t -a \"\""
-    alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
-fi
+export EDITOR="emacsclient -t -a \"\""
+alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
 alias reload-zshrc='. ~/.zshrc'
 alias youtube-download='youtube-dl -t'
