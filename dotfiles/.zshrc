@@ -28,8 +28,8 @@ then
 fi
 
 # osx gui emacs? recommended: brew install emacs --cocoa --srgb
-ec()  { emacsclient -a "" -c "$@" &! }
-ecd() { emacsclient -a "" -c "$@" & }
+ec()  { emacsclient -a "" -n -c "$@" &! }
+ecd() { emacsclient -a "" -n -c "$@" & }
 ect() { emacsclient -a "" -t "$@" ; }
 eck() { emacsclient -e "(kill-emacs 0)"; }
 
