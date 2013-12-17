@@ -33,7 +33,7 @@ ecd() { emacsclient -a "" -n -c "$@" & }
 ect() { emacsclient -a "" -t "$@" ; }
 eck() { emacsclient -e "(kill-emacs 0)"; }
 
-export EDITOR="emacsclient -t -a \"\""
+export EDITOR="emacsclient -c -a \"\""
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
 alias reload-zshrc='. ~/.zshrc'
