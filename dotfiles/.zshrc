@@ -37,7 +37,8 @@ export EDITOR="emacsclient -c -a \"\""
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 
 alias reload-zshrc='. ~/.zshrc'
-alias youtube-download='youtube-dl -t'
+alias youtube-download='youtube-dl -t -i'
+alias ytd='youtube-download'
 alias subs='LC_CTYPE="en" subliminal -l en'
 alias opensubs='subs --service opensubtitles'
 alias synchronize='rsync -WavP --ignore-existing'
