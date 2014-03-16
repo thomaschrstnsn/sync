@@ -28,13 +28,15 @@ then
 fi
 
 # osx gui emacs? recommended: brew install emacs --cocoa --srgb
-ec()  { emacsclient -a "" -n -c "$@" &! }
-ecd() { emacsclient -a "" -n -c "$@" & }
-ect() { emacsclient -a "" -t "$@" ; }
-eck() { emacsclient -e "(kill-emacs 0)"; }
+export EMACS_SERVER="default"
+ec()  { emacsclient -s $EMACS_SERVER -a "" -n -c "$@" &! }
+eco() { emacsclient -s $EMACS_SERVER -a "" -n "$@" &! }
+ecd() { emacsclient -s $EMACS_SERVER -a "" -n -c "$@" & }
+ect() { emacsclient -s $EMACS_SERVER -a "" -t "$@" ; }
+eck() { emacsclient -s $EMACS_SERVER -e "(kill-emacs 0)"; }
 
-export EDITOR="emacsclient -c -a \"\""
-alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
+export EDITOR='emacsclient -s $EMACS_SERVER -c -a ""'
+alias E='SUDO_EDITOR="emacsclient -s $EMACS_SERVER -t -a emacs" sudoedit'
 
 alias reload-zshrc='. ~/.zshrc'
 alias youtube-download='youtube-dl -t -i'
