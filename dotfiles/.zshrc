@@ -1,7 +1,17 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-source ~/.liquidprompt/liquidprompt
+if ! [[ -h ~/.oh-my-zsh/themes/powerline.zsh-theme ]];
+then
+    echo "symlinking powerline theme into oh-my-zsh"
+    ln -s ~/.powerline-theme/powerline.zsh-theme ~/.oh-my-zsh/themes/powerline.zsh-theme
+fi
+
+ZSH_THEME=powerline
+POWERLINE_HIDE_HOST_NAME="true"
+POWERLINE_HIDE_USER_NAME="true"
+POWERLINE_RIGHT_A="exit-status"
+POWERLINE_CUSTOM_CURRENT_PATH="%3~"
 
 COMPLETION_WAITING_DOTS="true"
 
