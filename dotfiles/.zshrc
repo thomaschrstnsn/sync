@@ -7,17 +7,28 @@ then
     ln -s ~/.powerline-theme/powerline.zsh-theme ~/.oh-my-zsh/themes/powerline.zsh-theme
 fi
 
-ZSH_THEME=powerline
-POWERLINE_HIDE_HOST_NAME="true"
-POWERLINE_HIDE_USER_NAME="true"
-POWERLINE_RIGHT_A="exit-status"
-POWERLINE_CUSTOM_CURRENT_PATH="%3~"
+if [[ $TERM == "screen-256color" ]];
+then
+    ZSH_THEME=agnoster
+else
+    # non tmux/screen scenario => use fullblown powerline
+    ZSH_THEME=powerline
+    POWERLINE_HIDE_HOST_NAME="true"
+    POWERLINE_HIDE_USER_NAME="true"
+    POWERLINE_RIGHT_A="exit-status"
+    POWERLINE_CUSTOM_CURRENT_PATH="%3~"
+fi
 
 COMPLETION_WAITING_DOTS="true"
+
+ # fix tmux utf8 detection
+export LC_CTYPE="UTF8"
+export LANG="UTF8"
 
 # starting shell from ssh and tmux is not running
 if [[ -n $SSH_CONNECTION && -z "$TMUX" ]]; then
     echo "autostarting tmux"
+
     ZSH_TMUX_AUTOSTART=true
     ZSH_TMUX_AUTOCONNECT=true
 fi
