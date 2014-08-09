@@ -3,7 +3,7 @@
                   [lein-kibit "0.0.8"]
                   [lein-release "1.0.5"]
                   [com.jakemccrary/lein-test-refresh "0.5.0"]
-                  [cider/cider-nrepl "0.7.0-SNAPSHOT"]]
+                  [cider/cider-nrepl "0.7.0"]]
 
         :test-refresh {:notify-command ["terminal-notifier" "-title" "\"test-refresh\"" "-message"]
                        :notify-on-success true}
