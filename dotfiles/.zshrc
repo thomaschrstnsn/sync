@@ -1,23 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-if ! [[ -h ~/.oh-my-zsh/themes/powerline.zsh-theme ]];
-then
-    echo "symlinking powerline theme into oh-my-zsh"
-    ln -s ~/.powerline-theme/powerline.zsh-theme ~/.oh-my-zsh/themes/powerline.zsh-theme
-fi
-
-if [[ $TERM == "screen-256color" ]];
-then
-    ZSH_THEME=agnoster
-else
-    # non tmux/screen scenario => use fullblown powerline
-    ZSH_THEME=powerline
-    POWERLINE_HIDE_HOST_NAME="true"
-    POWERLINE_HIDE_USER_NAME="true"
-    POWERLINE_RIGHT_A="exit-status"
-    POWERLINE_CUSTOM_CURRENT_PATH="%3~"
-fi
+ZSH_THEME=tjkirch
 
 COMPLETION_WAITING_DOTS="true"
 
