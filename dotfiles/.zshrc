@@ -1,13 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME=tjkirch
-
 COMPLETION_WAITING_DOTS="true"
 
  # fix tmux utf8 detection
-export LC_CTYPE="UTF8"
-export LANG="UTF8"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # starting shell from ssh and tmux is not running
 if [[ -n $SSH_CONNECTION && -z "$TMUX" ]]; then
@@ -19,10 +17,19 @@ fi
 
 plugins=(git osx tmux brew lein rsync colored-man history-substring-search extract)
 
-source $ZSH/oh-my-zsh.sh
-
 # Customize to your needs...
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH:.
+
+# mac powerline
+if [ -d /Users/thomas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh ]; then
+    source $ZSH/oh-my-zsh.sh
+    export PATH=$PATH:~/Library/Python/2.7/bin
+    source "/Users/thomas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh"
+# fallback
+else
+    ZSH_THEME=tjkirch
+    source $ZSH/oh-my-zsh.sh
+fi
 
 export LESSCHARSET='utf-8'
 
