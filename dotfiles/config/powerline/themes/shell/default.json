@@ -27,14 +27,14 @@
 				"function": "powerline.segments.shell.last_pipe_status",
 				"priority": 10
 			},
-                        {
-                            "function": "powerline.segments.common.date",
-                            "priority": 30
-                        },
 			{
 				"function": "branch",
 				"priority": 40
-			}
+			},
+                        {
+                            "function": "powerline.segments.common.date",
+                            "priority": 30
+                        }
 		]
 	}
 }
