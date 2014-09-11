@@ -22,12 +22,12 @@ export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH:.
 
 # mac powerline
 if [ -d /Users/thomas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh ]; then
-    source $ZSH/oh-my-zsh.sh
     export PATH=$PATH:~/Library/Python/2.7/bin
+    source $ZSH/oh-my-zsh.sh
     source "/Users/thomas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh"
 elif [ -d ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh ]; then
-    source $ZSH/oh-my-zsh.sh
     export PATH=$PATH:~/.local/bin
+    source $ZSH/oh-my-zsh.sh
     source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 # fallback
 else
