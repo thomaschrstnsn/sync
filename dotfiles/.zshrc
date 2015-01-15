@@ -15,10 +15,10 @@ if [[ -n $SSH_CONNECTION && -z "$TMUX" ]]; then
     ZSH_TMUX_AUTOCONNECT=true
 fi
 
-plugins=(git osx tmux brew lein rsync colored-man history-substring-search extract)
+plugins=(git osx tmux brew lein rsync colored-man history-substring-search extract cabal bower node npm)
 
 # Customize to your needs...
-export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH:.
+export PATH=~/bin:~/Library/Haskell/bin:/usr/local/bin:/usr/local/sbin:$PATH:.
 
 # mac powerline
 if [ -d /Users/thomas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh ]; then
@@ -51,7 +51,7 @@ ecd() { emacsclient -s $EMACS_SERVER -a "" -n -c "$@" & }
 ect() { emacsclient -s $EMACS_SERVER -a "" -t "$@" ; }
 eck() { emacsclient -s $EMACS_SERVER -e "(kill-emacs 0)"; }
 
-export EDITOR='emacsclient -s $EMACS_SERVER -c -a ""'
+export EDITOR='emacsclient -s $EMACS_SERVER -c -t -a ""'
 alias E='SUDO_EDITOR="emacsclient -s $EMACS_SERVER -t -a emacs" sudoedit'
 
 alias reload-zshrc='. ~/.zshrc'
