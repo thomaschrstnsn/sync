@@ -2,7 +2,7 @@
                   [lein-vanity "0.1.0"]
                   [lein-kibit "0.0.8"]
                   [lein-pprint "1.1.2"]
-                  [cider/cider-nrepl "0.7.0"]]
+                  [cider/cider-nrepl "0.9.0-SNAPSHOT"]]
 
         :test-refresh {:notify-command ["terminal-notifier" "-title" "\"test-refresh\"" "-message"]
                        :notify-on-success true}
