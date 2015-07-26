@@ -6,7 +6,8 @@
                   [refactor-nrepl "1.1.0"]]
 
         :test-refresh {:notify-command ["terminal-notifier" "-title" "\"test-refresh\"" "-message"]
-                       :notify-on-success true}
+                       :notify-on-success true
+                       :quiet true}
 
         :dependencies [[slamhound "1.5.0"]]
 
