@@ -15,7 +15,7 @@ if [[ -n $SSH_CONNECTION && -z "$TMUX" ]]; then
     ZSH_TMUX_AUTOCONNECT=true
 fi
 
-plugins=(git osx tmux brew lein rsync colored-man history-substring-search extract cabal bower node npm)
+plugins=(git osx tmux brew lein rsync colored-man history-substring-search extract cabal bower node npm stack)
 
 # Customize to your needs...
 export PATH=~/bin:~/Library/Haskell/bin:/usr/local/bin:/usr/local/sbin:$PATH:.
