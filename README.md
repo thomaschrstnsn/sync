@@ -2,6 +2,6 @@
 
 ## `dotfiles`
 
-zsh, liquidprompt, oh-my-zsh
+oh-my-zsh and customizations for a pleasant shell experience.
 
 From `~/` run `sync/dotfiles/setup.sh` to deploy (will query before overwriting).
