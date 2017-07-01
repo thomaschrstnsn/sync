@@ -51,3 +51,8 @@ for FILE in `find -L . -maxdepth 2 -wholename './config/*'`; do
 
     link_file_or_dir $SOURCE $DESTFILE $TO/.config
 done
+
+POWERLEVEL9K='~/.powerlevel9k'
+OHMYZSHCUSTOMTHEMES=".oh-my-zsh/custom/themes/powerlevel9k"
+echo linking $POWERLEVEL9K into $OHMYZSHCUSTOMTHEMES
+ln -siF ~/.powerlevel9k/ $OHMYZSHCUSTOMTHEMES

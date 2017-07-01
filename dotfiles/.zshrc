@@ -20,20 +20,50 @@ plugins=(git osx tmux brew lein rsync colored-man history-substring-search extra
 # Customize to your needs...
 export PATH=~/bin:~/Library/Haskell/bin:/usr/local/bin:/usr/local/sbin:$PATH:.
 
-# mac powerline
-if [ -d /Users/thomas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh ]; then
-    export PATH=$PATH:~/Library/Python/2.7/bin
-    source $ZSH/oh-my-zsh.sh
-    source "/Users/thomas/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh"
-elif [ -d ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh ]; then
-    export PATH=$PATH:~/.local/bin
-    source $ZSH/oh-my-zsh.sh
-    source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-# fallback
-else
-    ZSH_THEME=tjkirch
-    source $ZSH/oh-my-zsh.sh
-fi
+# https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config#mavams-configuration
+# Nerd Fonts (Meslo): https://github.com/ryanoasis/nerd-fonts
+
+POWERLEVEL9K_MODE='nerdfont-complete'
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+#POWERLEVEL9K_SHORTEN_DELIMITER=""
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR=''
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%F{white}"
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="%F{blue}\u2570\uf460%F{white} "
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator dir dir_writable_joined)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time
+                                    vcs background_jobs_joined time_joined)
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="clear"
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="clear"
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="yellow"
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="yellow"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="clear"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="clear"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="blue"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_BACKGROUND="clear"
+POWERLEVEL9K_DIR_WRITABLE_FORBIDDEN_FOREGROUND="red"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="clear"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
+POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="red"
+POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="white"
+POWERLEVEL9K_STATUS_OK_BACKGROUND="clear"
+POWERLEVEL9K_STATUS_OK_FOREGROUND="green"
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND="clear"
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND="red"
+POWERLEVEL9K_TIME_BACKGROUND="clear"
+POWERLEVEL9K_TIME_FOREGROUND="cyan"
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='clear'
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='magenta'
+POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='clear'
+POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='green'
+
+ZSH_THEME="powerlevel9k/powerlevel9k"
+source $ZSH/oh-my-zsh.sh
 
 export LESSCHARSET='utf-8'
 
