@@ -55,5 +55,7 @@ done
 POWERLEVEL9K='~/.powerlevel9k'
 OHMYZSHCUSTOMTHEMES=".oh-my-zsh/custom/themes"
 echo linking $POWERLEVEL9K into $OHMYZSHCUSTOMTHEMES
-mkdir $OHMYZSHCUSTOMTHEMES
+if [ ! -d $OHMYZSHCUSTOMTHEMES ]; then
+    mkdir $OHMYZSHCUSTOMTHEMES
+fi;
 ln -siF ~/.powerlevel9k/ $OHMYZSHCUSTOMTHEMES/powerlevel9k
