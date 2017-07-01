@@ -1,4 +1,4 @@
-#!/bin/bash
+#! env bash
 # Script to automatically create dotfile symlinks
 
 FROM="`dirname \`which $0\``"
