@@ -7,3 +7,6 @@
 [submodule "dotfiles/.powerlevel9k"]
 	path = dotfiles/.powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k
+[submodule "dotfiles/.tmux-flecha"]
+	path = dotfiles/.tmux-flecha
+	url = https://github.com/labianchin/tmux-flecha
