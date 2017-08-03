@@ -99,8 +99,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias .-='cd -'
 
-# datomic
-alias datomic-free=$HOME/.datomic-free/bin/datomic-free
+export PATH=`stack path --local-bin`:$PATH
 
 # http://brettterpstra.com/2011/09/25/quick-tip-some-inputrc-fun/
 # C-w performs filename rubout
