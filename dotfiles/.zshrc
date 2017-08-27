@@ -99,7 +99,18 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias .-='cd -'
 
-export PATH=`stack path --local-bin`:$PATH
+if (( $+commands[stack] ));
+then
+    export PATH=`stack path --local-bin`:$PATH
+fi
+
+if (( $+commands[exa] ));
+then
+    alias ls="exa -bghHl@m --group-directories-first"
+    alias l="exa"
+    alias tree="exa -bghHl@mT"
+fi
+
 
 # http://brettterpstra.com/2011/09/25/quick-tip-some-inputrc-fun/
 # C-w performs filename rubout
