@@ -106,9 +106,9 @@ fi
 
 if (( $+commands[exa] ));
 then
-    alias ls="exa -bghHl@m --group-directories-first"
+    alias ls="exa -bghHlm --group-directories-first"
     alias l="exa"
-    alias tree="exa -bghHl@mT"
+    alias tree="exa -bghHlmT"
 fi
 
 
